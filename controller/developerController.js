@@ -1,4 +1,4 @@
-const { Developer, Project } = require('../models');
+const { Developer, Project, DevProject } = require('../models');
 
 class Controller {
     static showAll(req, res) {
@@ -60,12 +60,30 @@ class Controller {
             })
     }
     static showProjects(req, res) {
+        let dev
         Developer.findOne({
-            where: { id: req.params.id },
-            include: [Project]
+            where: { id: req.params.id }
         })
-            .then((dev) => {
-                res.render('devShowProject', { dev })
+            .then((data) => {
+                dev = data
+                return DevProject.findAll({
+                    where: { devId: req.params.id },
+                    include: [Project]
+                })
+            })
+            .then(devProjects => {
+                res.render('devShowProject', { dev, devProjects })
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+    static shutDown(req, res) {
+        DevProject.destroy({
+            where: { id: req.params.id }
+        })
+            .then(() => {
+                res.redirect(`/developers`)
             })
             .catch(err => {
                 res.send(err)

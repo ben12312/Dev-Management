@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Project.belongsToMany(models.Developer, { through: "DevProjects", foreignKey: "projectId" })
     }
+
+    formatedDay() {
+      return `${this.time_line} Day`
+    }
   };
   Project.init({
     project_name: {

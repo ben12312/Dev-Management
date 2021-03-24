@@ -8,5 +8,6 @@ devRouter.get('/:id/edit', Controller.editGet);
 devRouter.post('/:id/edit', Controller.editPost);
 devRouter.get('/delete', Controller.delete);
 devRouter.get('/:id/projects', Controller.showProjects);
+devRouter.get('/:id/shut-down', Controller.shutDown);
 
 module.exports = devRouter

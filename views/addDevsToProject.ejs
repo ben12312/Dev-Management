@@ -1,0 +1,30 @@
+<%- include('./partials/navbar') %>
+<%- include('./partials/header', { title: "Projects", subTitle: ""}) %>
+
+<body>
+    <form method="POST" action="">
+        <div class="mt-4 container">
+            <h3>Choose the developers for (<%= project.project_name %>)</h3><br>
+            <label for="">Developers :</label>
+            <% devs.forEach(dev => { %>
+            <div class="form-check">
+                <input name="devId" class="form-check-input" type="checkbox" value="<%= dev.id %>">
+                <label class="form-check-label"> 
+                    <%= dev.name %>
+                </label>
+                </div>
+            <% }) %>
+            <br>
+            
+            <label for="">Position :</label><br>
+                <select name="position" class="form-select" aria-label="Default select example">
+                <option value="Frontend">Frontend</option>
+                <option value="Backend">Backend</option>
+                <option value="Lead">Lead</option>
+            </select><br><br>
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
+    </form>
+</body>
+
+

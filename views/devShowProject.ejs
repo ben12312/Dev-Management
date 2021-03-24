@@ -14,13 +14,13 @@
               </tr>
             </thead>
             <tbody>
-              <% dev.Projects.forEach(project => { %>
+              <% devProjects.forEach(project => { %>
                 <tr>
-                    <th><%= project.name %></th>
-                    <th><%= project.time_line %></th>
-                    <th><%= project.importance %></th>
+                    <th><%= project.Project.project_name %></th>
+                    <th><%= project.Project.time_line %></th>
+                    <th><%= project.Project.importance %></th>
                     <th>
-                      <a class="btn btn-dark" href="/developers/shut-down" onclick="return confirm('Are you sure?')" role="button">shut down</a>
+                      <a class="btn btn-dark" href="/developers/<%= project.id %>/shut-down" onclick="return confirm('Are you sure?')" role="button">remove</a>
                     </th>
                    </tr>
               <% }) %>

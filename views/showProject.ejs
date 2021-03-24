@@ -16,13 +16,13 @@
             <tbody>
               <% projects.forEach(project => { %>
                 <tr>
-                    <th><%= project.name %></th>
-                    <th><%= project.time_line %></th>
+                    <th><%= project.project_name %></th>
+                    <th><%= project.formatedDay() %></th>
                     <th><%= project.importance %></th>
                     <th>
                       <a class="btn btn-dark" href="/projects/<%= project.id %>/edit" role="button">edit</a> |
                       <a class="btn btn-dark" href="/projects/<%= project.id %>/delete" onclick="return confirm('Are you sure?')" role="button">delete</a> |
-                      <a class="btn btn-dark" href="/projects/<%= project.id %>/projects" role="button">projects</a>
+                      <a class="btn btn-dark" href="/projects/<%= project.id %>/devs" role="button">add Dev</a>
                     </th>
                    </tr>
               <% }) %>

@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Developer.belongsToMany(models.Project, { through: "DevProjects", foreignKey: "devId" })
     }
+    // Instance Method
+    addNameWithCompany() {
+      return `${this.name} IO-dev`
+    }
   };
   Developer.init({
     name: {

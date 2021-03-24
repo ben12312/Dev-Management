@@ -1,0 +1,32 @@
+<%- include('./partials/navbar') %>
+<%- include('./partials/header', { title: "Projects", subTitle: ""}) %>
+<body>
+    <div class="mt-5 container">
+        <h3>Project List</h3>
+        <a class="btn btn-secondary" href="/projects/add">new project</a>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Project Name</th>
+                <th scope="col">Time Line</th>
+                <th scope="col">Importances</th>
+                <th scope="col">Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% projects.forEach(project => { %>
+                <tr>
+                    <th><%= project.name %></th>
+                    <th><%= project.time_line %></th>
+                    <th><%= project.importance %></th>
+                    <th>
+                      <a class="btn btn-dark" href="/projects/<%= project.id %>/edit" role="button">edit</a> |
+                      <a class="btn btn-dark" href="/projects/<%= project.id %>/delete" onclick="return confirm('Are you sure?')" role="button">delete</a> |
+                      <a class="btn btn-dark" href="/projects/<%= project.id %>/projects" role="button">projects</a>
+                    </th>
+                   </tr>
+              <% }) %>
+            </tbody>
+          </table>
+    </div>
+</body>

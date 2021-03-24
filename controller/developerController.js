@@ -60,11 +60,12 @@ class Controller {
             })
     }
     static showProjects(req, res) {
-        Developer.findAll({
+        Developer.findOne({
+            where: { id: req.params.id },
             include: [Project]
         })
-            .then(() => {
-                res.render('devShowProject')
+            .then((dev) => {
+                res.render('devShowProject', { dev })
             })
             .catch(err => {
                 res.send(err)

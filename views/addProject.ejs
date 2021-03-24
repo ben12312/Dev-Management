@@ -1,0 +1,31 @@
+<%- include('./partials/navbar') %>
+<%- include('./partials/header', { title: "Projects", subTitle: ""}) %>
+
+<body>
+    <div class="mt-4 container">
+        <h3>Add Project</h3>
+        
+        <form method="POST">
+            <div class="form-group">
+              <label>Project Name</label>
+              <input name="project_name" type="text" class="form-control" placeholder="Enter project name">
+            </div>
+            <div class="form-group">
+              <label>Time Line</label>
+              <input name="time_line" type="text" class="form-control" placeholder="approximately project can be done (day)">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Importances</label>
+                <input name="phone_number" type="number" class="form-control" placeholder="Phone number">
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Choose Developers :</label>
+                <input name="time_line" type="email" class="form-control" placeholder="approximately project can be done (day)">
+              </div>
+
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+    </div>
+</body>

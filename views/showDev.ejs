@@ -1,0 +1,36 @@
+<%- include('./partials/navbar') %>
+<%- include('./partials/header', { title: "Developers", subTitle: ""}) %>
+<body>
+    <div class="mt-5 container">
+        <h3>Developer List</h3>
+        <a class="btn btn-secondary" href="/developers/add">add dev</a>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Git Username</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% devs.forEach(dev => { %>
+                <tr>
+                    <th><%= dev.name %></th>
+                    <th><%= dev.email %></th>
+                    <th><%= dev.phone_number %></th>
+                    <th><%= dev.git_username %></th>
+                    <th><%= dev.gender %></th>
+                    <th>
+                      <a class="btn btn-dark" href="/developers/<%= dev.id %>/edit" role="button">edit</a> |
+                      <a class="btn btn-dark" href="/developers/<%= dev.id %>/delete" onclick="return confirm('Are you sure?')" role="button">delete</a> |
+                      <a class="btn btn-dark" href="/developers/<%= dev.id %>/projects" role="button">projects</a>
+                    </th>
+                   </tr>
+              <% }) %>
+            </tbody>
+          </table>
+    </div>
+</body>

@@ -8,23 +8,23 @@
         <form method="POST">
             <div class="form-group">
               <label>Name</label>
-              <input name="name" type="text" value="<%= dev.name %>" class="form-control" placeholder="Enter name">
+              <input name="name" type="text" value="<%= dev.name %>" class="form-control">
             </div>
             <div class="form-group">
               <label >Email</label>
-              <input name="email" type="email" value="<%= dev.email %>" class="form-control" placeholder="Enter email">
+              <input name="email" type="email" value="<%= dev.email %>" class="form-control">
             </div>
             <div class="form-group">
               <label >Password</label>
-              <input name="password" type="password" value="<%= dev.password %>" class="form-control" placeholder="password">
+              <input name="password" type="password" value="<%= dev.password %>" class="form-control" >
             </div>
             <div class="form-group">
                 <label >Phone Number</label>
-                <input name="phone_number" type="number" value="<%= dev.phone_number %>" class="form-control" placeholder="Phone number">
+                <input name="phone_number" type="number" value="<%= dev.phone_number %>" class="form-control" >
               </div>
               <div class="form-group">
                 <label>Git Username</label>
-                <input name="git_username" type="text" value="<%= dev.git_username %>" class="form-control" placeholder="Username Github">
+                <input name="git_username" type="text" value="<%= dev.git_username %>" class="form-control" >
               </div>
               <label>Gender </label>
               <div class="form-check">
@@ -38,6 +38,14 @@
                 <label class="form-check-label">
                   female
                 </label>
+              </div>
+
+              <div class="form-group">
+                <label >Role :</label>
+                <select name="role" class="form-select" aria-label="Default select example">
+                  <option <%= dev.role == 'CTO' ? 'selected' : '' %> value="CTO">CTO</option>
+                  <option <%= dev.role == 'Developers' ? 'selected' : '' %> value="Developers">Developers</option>
+                </select>
               </div>
 
             <button type="submit" class="btn btn-dark">Submit</button>

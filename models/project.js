@@ -28,10 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     time_line: {
-      type: DataTypes.INTEGER,
-      validate: {
-        allowNull: false
-      }
+      type: DataTypes.INTEGER
     },
     importance: {
       type: DataTypes.STRING,

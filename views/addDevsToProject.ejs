@@ -6,14 +6,28 @@
         <div class="mt-4 container">
             <h3>Choose the developers for (<%= project.project_name %>)</h3><br>
             <label for="">Developers :</label>
-            <% devs.forEach(dev => { %>
-            <div class="form-check">
-                <input name="devId" class="form-check-input" type="checkbox" value="<%= dev.id %>">
-                <label class="form-check-label"> 
-                    <%= dev.name %>
-                </label>
-                </div>
-            <% }) %>
+
+            <% if (loginDev.role === 'Developers') { %>
+                <div class="form-check">
+                    <input name="devId" class="form-check-input" type="checkbox" value="<%= loginDev.id %>">
+                    <label class="form-check-label"> 
+                        <%= loginDev.name %>
+                    </label>
+                    </div>
+            <% } else { %>
+                <% devs.forEach(dev => { %>
+                    <div class="form-check">
+                        <input name="devId" class="form-check-input" type="checkbox" value="<%= dev.id %>">
+                        <label class="form-check-label"> 
+                            <%= dev.name %>
+                        </label>
+                        </div>
+                    <% }) %>
+            <% } %>
+            
+            
+
+
             <br>
             
             <label for="">Position :</label><br>

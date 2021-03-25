@@ -11,7 +11,9 @@
                 <th scope="col">Time Line</th>
                 <th scope="col">Importances</th>
                 <th scope="col">Position</th>
+                <% if (loginRole === 'CTO') { %>
                 <th scope="col">Manage</th>
+                <% } %>
               </tr>
             </thead>
             <tbody>
@@ -22,7 +24,9 @@
                     <th><%= project.Project.importance %></th>
                     <th><%= project.position %></th>
                     <th>
+                      <% if (loginRole === 'CTO') { %>
                       <a class="btn btn-dark" href="/developers/<%= project.id %>/remove" onclick="return confirm('Are you sure?')" role="button">remove</a>
+                      <% } %>
                     </th>
                    </tr>
               <% }) %>

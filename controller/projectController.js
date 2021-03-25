@@ -3,17 +3,19 @@ const makeId = require('../helpers/makeId');
 
 class Controller {
     static showAll(req, res) {
+        let loginRole = req.session.dev.role
+
         Project.findAll({
             inculde: [Developer]
         })
             .then(projects => {
-                res.render('showProject', { projects })
+                res.render('showProject', { projects, loginRole })
             })
             .catch(err => {
                 res.send(err)
             })
     }
-    
+
     static addGet(req, res) {
         Developer.findAll()
             .then(devs => {
@@ -74,13 +76,15 @@ class Controller {
 
     static addDevsGet(req, res) {
         let project
+        let loginDev = req.session.dev
+
         Project.findByPk(req.params.id)
             .then(data => {
                 project = data
                 return Developer.findAll()
             })
             .then(devs => {
-                res.render('addDevsToProject', { project, devs })
+                res.render('addDevsToProject', { project, devs, loginDev })
             })
             .catch(err => {
                 res.send(err)

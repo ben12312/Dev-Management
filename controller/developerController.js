@@ -1,30 +1,14 @@
 const { Developer, Project, DevProject } = require('../models');
-const sendEmail = require('../helpers/nodemailer');
 
 class Controller {
     static showAll(req, res) {
+        let loginRole = req.session.dev.role
+
         Developer.findAll({
             order: [['name', 'ASC']]
         })
             .then(devs => {
-                res.render('showDev', { devs })
-            })
-            .catch(err => {
-                res.send(err)
-            })
-    }
-
-    static addGet(req, res) {
-        res.render('addDev')
-    }
-
-    static addPost(req, res) {
-        let input = req.body
-
-        Developer.create(input)
-            .then(() => {
-                sendEmail(input.email, "IO-dev Greetings", `Wellcome to IO-dev.\nYou have been registrated in IO-Dev as a ${input.role}`)
-                res.redirect('/developers')
+                res.render('showDev', { devs, loginRole })
             })
             .catch(err => {
                 res.send(err)
@@ -32,11 +16,13 @@ class Controller {
     }
 
     static editGet(req, res) {
+        let loginRole = req.session.dev.role
+
         Developer.findOne({
             where: { id: req.params.id }
         })
             .then(dev => {
-                res.render('editDev', { dev })
+                res.render('editDev', { dev, loginRole })
             })
             .catch(err => {
                 res.send(err)
@@ -45,6 +31,7 @@ class Controller {
 
     static editPost(req, res) {
         let input = req.body
+
         Developer.update(input, {
             where: { id: req.params.id }
         })
@@ -70,6 +57,8 @@ class Controller {
 
     static showProjects(req, res) {
         let dev
+        let loginRole = req.session.dev.role
+        
         Developer.findOne({
             where: { id: req.params.id }
         })
@@ -81,7 +70,7 @@ class Controller {
                 })
             })
             .then(devProjects => {
-                res.render('devShowProject', { dev, devProjects })
+                res.render('devShowProject', { dev, devProjects, loginRole })
             })
             .catch(err => {
                 res.send(err)

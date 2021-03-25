@@ -3,7 +3,9 @@
 <body>
     <div class="mt-5 container">
         <h3>Developer List</h3>
-        <a class="btn btn-secondary" href="/developers/add">add dev</a>
+        <% if (loginRole === 'CTO') { %>
+          <a class="btn btn-secondary" href="/add">add dev</a>
+        <% } %>
         <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -24,9 +26,12 @@
                     <th><%= dev.git_username %></th>
                     <th><%= dev.gender %></th>
                     <th>
-                      <a class="btn btn-dark" href="/developers/<%= dev.id %>/edit" role="button">edit</a> |
-                      <a class="btn btn-dark" href="/developers/<%= dev.id %>/delete" onclick="return confirm('Are you sure?')" role="button">delete</a> |
+                      <% if (loginRole === 'CTO') { %>
+                        <a class="btn btn-dark" href="/developers/<%= dev.id %>/edit" role="button">edit</a> |
+                        <a class="btn btn-dark" href="/developers/<%= dev.id %>/delete" onclick="return confirm('Are you sure?')" role="button">delete</a> |
+                       <% } else { %>
                       <a class="btn btn-dark" href="/developers/<%= dev.id %>/projects" role="button">projects</a>
+                      <% } %>
                     </th>
                    </tr>
               <% }) %>

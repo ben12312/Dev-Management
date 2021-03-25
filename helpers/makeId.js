@@ -3,7 +3,8 @@ function makeId(array) {
     let body = array.body
     let newId = array.params.id
     let result = []
-    if (body.devId.length > 1) {
+
+    if (typeof (body.devId) !== "string") {
         body.devId.forEach(id => {
             result.push({
                 devId: id,

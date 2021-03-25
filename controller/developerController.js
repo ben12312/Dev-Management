@@ -1,4 +1,5 @@
 const { Developer, Project, DevProject } = require('../models');
+const sendEmail = require('../helpers/nodemailer');
 
 class Controller {
     static showAll(req, res) {
@@ -12,19 +13,24 @@ class Controller {
                 res.send(err)
             })
     }
+
     static addGet(req, res) {
         res.render('addDev')
     }
+
     static addPost(req, res) {
         let input = req.body
+
         Developer.create(input)
             .then(() => {
+                sendEmail(input.email, "IO-dev Greetings", "Wellcome to IO-dev")
                 res.redirect('/developers')
             })
             .catch(err => {
                 res.send(err)
             })
     }
+
     static editGet(req, res) {
         Developer.findOne({
             where: { id: req.params.id }
@@ -36,6 +42,7 @@ class Controller {
                 res.send(err)
             })
     }
+
     static editPost(req, res) {
         let input = req.body
         Developer.update(input, {
@@ -48,6 +55,7 @@ class Controller {
                 res.send(err)
             })
     }
+
     static delete(req, res) {
         Developer.destroy({
             where: { id: req.params.id }
@@ -59,6 +67,7 @@ class Controller {
                 res.send(err)
             })
     }
+
     static showProjects(req, res) {
         let dev
         Developer.findOne({
@@ -78,7 +87,8 @@ class Controller {
                 res.send(err)
             })
     }
-    static shutDown(req, res) {
+
+    static removeProject(req, res) {
         DevProject.destroy({
             where: { id: req.params.id }
         })

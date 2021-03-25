@@ -1,9 +1,6 @@
 const Controller = require('../controller/projectController');
 const projectRouter = require('express').Router();
 
-projectRouter.get('/login', Controller.loginGet);
-projectRouter.post('/login', Controller.loginPost);
-
 projectRouter.get('/', Controller.showAll);
 projectRouter.get('/add', Controller.addGet);
 projectRouter.post('/add', Controller.addPost);

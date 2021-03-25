@@ -21,35 +21,61 @@ module.exports = (sequelize, DataTypes) => {
   Developer.init({
     name: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Name can not be empty'
+      validate: {
+        notEmpty: {
+          msg: 'Name can not be empty'
+        }
       }
     },
     email: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Email can not be empty'
-      },
-      isEmail: {
-        msg: 'Need to fill with email format'
+      validate: {
+        notEmpty: {
+          msg: 'Email can not be empty'
+        },
+        isEmail: {
+          msg: 'Need to fill with email format'
+        }
       }
     },
     phone_number: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Phone number can not be empty'
+      validate: {
+        notEmpty: {
+          msg: 'Phone number can not be empty'
+        }
       }
     },
     git_username: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Git username can not be empty'
+      validate: {
+        notEmpty: {
+          msg: 'Git username can not be empty'
+        }
       }
     },
     gender: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Gender username can not be empty'
+      validate: {
+        notEmpty: {
+          msg: 'Gender username can not be empty'
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'Please type your password'
+        }
+      }
+    },
+    role: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: `Select the role`
+        }
       }
     }
   }, {

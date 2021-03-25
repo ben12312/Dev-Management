@@ -1,0 +1,17 @@
+<%- include('./partials/navbar') %>
+    <%- include('./partials/header', { title: "Developers" , subTitle: "" }) %>
+
+<body>
+    <div class="mt-4 container">
+        <div class="jumbotron container">
+            <h1 class="display-3">IO-dev</h1>
+            <h1 class="display-4">Developers Management</h1>
+            <p class="lead">Manage your team easily</p>
+            <hr class="my-4">
+            <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
+            <a class="btn btn-dark btn-lg" href="/developers/add" role="button">Register</a>
+        </div>
+    </div>
+</body>
+
+<%- include('./partials/footer.ejs') %>

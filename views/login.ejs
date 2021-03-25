@@ -1,0 +1,22 @@
+<%- include('./partials/navbar') %>
+<%- include('./partials/header', { title: "Developers", subTitle: ""}) %>
+
+<%- include('./partials/loginStyle') %>
+<body class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="">
+                    <form method="POST" class="box">
+                        <h1>Login</h1>
+                        <input type="text" name="email" placeholder="Use email as username">
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="submit" name="" value="Login" href="#">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<%- include('./partials/footer.ejs') %>

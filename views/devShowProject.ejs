@@ -10,6 +10,7 @@
                 <th scope="col">Project Name</th>
                 <th scope="col">Time Line</th>
                 <th scope="col">Importances</th>
+                <th scope="col">Position</th>
                 <th scope="col">Manage</th>
               </tr>
             </thead>
@@ -19,8 +20,9 @@
                     <th><%= project.Project.project_name %></th>
                     <th><%= project.Project.time_line %></th>
                     <th><%= project.Project.importance %></th>
+                    <th><%= project.position %></th>
                     <th>
-                      <a class="btn btn-dark" href="/developers/<%= project.id %>/shut-down" onclick="return confirm('Are you sure?')" role="button">remove</a>
+                      <a class="btn btn-dark" href="/developers/<%= project.id %>/remove" onclick="return confirm('Are you sure?')" role="button">remove</a>
                     </th>
                    </tr>
               <% }) %>

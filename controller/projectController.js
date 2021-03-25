@@ -13,14 +13,7 @@ class Controller {
                 res.send(err)
             })
     }
-
-    static loginGet(req, res) {
-        res.send('LOGIN')
-    }
-    static loginPost(req, res) {
-        res.send('LOGIN POST')
-    }
-
+    
     static addGet(req, res) {
         Developer.findAll()
             .then(devs => {

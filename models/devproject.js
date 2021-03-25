@@ -22,8 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     projectId: DataTypes.INTEGER,
     position: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Please type your Position'
+      validate: {
+        notEmpty: {
+          msg: 'Please type your Position'
+        }
       }
     }
   }, {

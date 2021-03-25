@@ -10,18 +10,27 @@
               <label>Name</label>
               <input name="name" type="text" class="form-control" placeholder="Enter name">
             </div>
+
             <div class="form-group">
-              <label for="exampleInputPassword1">Email</label>
+              <label >Email</label>
               <input name="email" type="email" class="form-control" placeholder="Enter email">
             </div>
+
             <div class="form-group">
-                <label for="exampleInputPassword1">Phone Number</label>
+              <label >Password</label>
+              <input name="password" type="password" class="form-control" placeholder="Enter pasword">
+            </div>
+
+            <div class="form-group">
+                <label >Phone Number</label>
                 <input name="phone_number" type="number" class="form-control" placeholder="Phone number">
               </div>
+
               <div class="form-group">
-                <label for="exampleInputPassword1">Git Username</label>
+                <label >Git Username</label>
                 <input name="git_username" type="text" class="form-control" placeholder="Username Github">
               </div>
+
               <label>Gender </label>
               <div class="form-check">
                 <input class="form-check-input" value="male" type="radio" name="gender">
@@ -34,6 +43,15 @@
                 <label class="form-check-label">
                   female
                 </label>
+              </div><br>  
+
+              <div class="form-group">
+                <label >Role :</label>
+                <select name="role" class="form-select" aria-label="Default select example">
+                  <option selected>--ROLE--</option>
+                  <option value="CTO">CTO</option>
+                  <option value="Developers">Developers</option>
+                </select>
               </div>
 
             <button type="submit" class="btn btn-dark">Submit</button>

@@ -21,20 +21,24 @@ module.exports = (sequelize, DataTypes) => {
   Project.init({
     project_name: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Project Name can not be empty'
+      validate: {
+        notEmpty: {
+          msg: 'Project Name can not be empty'
+        }
       }
     },
     time_line: {
       type: DataTypes.INTEGER,
-      notNull: {
-        msg: 'Time Line should be filled'
+      validate: {
+        allowNull: false
       }
     },
     importance: {
       type: DataTypes.STRING,
-      notEmpty: {
-        msg: 'Importance level can not be empty'
+      validate: {
+        notEmpty: {
+          msg: 'Importance level can not be empty'
+        }
       }
     }
   }, {

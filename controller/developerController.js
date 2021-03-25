@@ -23,7 +23,7 @@ class Controller {
 
         Developer.create(input)
             .then(() => {
-                sendEmail(input.email, "IO-dev Greetings", "Wellcome to IO-dev")
+                sendEmail(input.email, "IO-dev Greetings", `Wellcome to IO-dev.\nYou have been registrated in IO-Dev as a ${input.role}`)
                 res.redirect('/developers')
             })
             .catch(err => {
